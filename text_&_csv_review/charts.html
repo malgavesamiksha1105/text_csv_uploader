@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Charts</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Analytics Charts</h1>
+
+<canvas id="pieChart"></canvas>
+<br><br>
+<canvas id="barChart"></canvas>
+<script>
+let data = JSON.parse(localStorage.getItem("analysisData"));
+
+const chartData = {
+    labels: ["Positive", "Negative", "Neutral", "Spam"],
+    datasets: [{
+        data: [
+            data.counts.Positive,
+            data.counts.Negative,
+            data.counts.Neutral,
+            data.counts.Spam
+        ],
+        backgroundColor: ["green","red","orange","purple"]
+    }]
+};
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analytics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Review Analytics</h1>
+
+<div class="grid">
+    <div class="box green">Positive<br><span id="pos">10</span></div>
+    <div class="box red">Negative<br><span id="neg">5</span></div>
+    <div class="box orange">Neutral<br><span id="neu">3</span></div>
+    <div class="box purple">Spam<br><span id="spam">2</span></div>
+</div>
+
+<h2>CSV Table Preview</h2>
+<table border="1">
+<tr>
+    <th>Review</th>
+    <th>Sentiment</th>
+</tr>
+<tr>
+    <td>Good product</td>
+    <td>Positive</td>
+</tr>
+<tr>
+    <td>Bad quality</td>
+    <td>Negative</td>
+</tr>
+</table>
+
+<br>
+<button onclick="goToPage3()">View Charts</button>
+
+<script>
+let data = JSON.parse(localStorage.getItem("analysisData"));
+
+document.getElementById("pos").innerText = data.counts.Positive;
+document.getElementById("neg").innerText = data.counts.Negative;
+document.getElementById("neu").innerText = data.counts.Neutral;
+document.getElementById("spam").innerText = data.counts.Spam;
+
+// Table
+let table = document.querySelector("table");
+
+data.results.forEach(r => {
+    let row = table.insertRow();
+    row.insertCell(0).innerText = r.review;
+    row.insertCell(1).innerText = r.sentiment;
+});
+</script>
+
+
+</body>
+</html>
