@@ -8,7 +8,7 @@ This is a simple web application that allows users to upload and display
 - Display file content instantly
 - Simple and clean user interface
 - Built using HTML, CSS, and JavaScript
-- No backend required
+- Backend-python(Flask)
 
 ## Technologies Used
 - HTML
